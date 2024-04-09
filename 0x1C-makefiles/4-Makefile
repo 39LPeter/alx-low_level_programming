@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Usage: make [all/clean/oclean/fclean] -f [file]
 
 
@@ -10,17 +11,18 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 
 # makes executable
 all: m.h $(OBJ)
-$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
 # deletes tmp files & executable
 clean:
-$(RM) *~ $(NAME)
+	$(RM) *~ $(NAME)
 
 # deletes object files
 oclean:
-$(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 # deletes all (tmp files, executable, & obj files)
 fclean: clean oclean
-#deletes all & recompiles all source files
+
+# deletes all & recompiles all source files
 re: oclean all
